@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* 
+   Copyright 2022-2026 Ivan L. Negrell
+
+   This file is part of AGS Localization Studio.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   See the LICENSE.md file for details.
+*/
+using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace AGS_TranslationEditor.Classes {
-
-
+namespace NegrellAGSLocForge {
 
     public class TranslationGridUtils {
 
-        public DataGridView translationGrid;
+        private DataGridView translationGrid;
+
         public class SearchInfo {
             TranslationGridUtils parent;
             private bool active;
@@ -78,6 +85,11 @@ namespace AGS_TranslationEditor.Classes {
         public TranslationGridUtils(DataGridView translationGrid) {
             this.translationGrid = translationGrid;
             search = new SearchInfo(this);
+        }
+
+        public void BindDataSource(BindingList<TranslationEntry> entriesSource)
+        {
+            translationGrid.DataSource = entriesSource;
         }
 
         public void SearchText(String text, SearchOptions options) {
@@ -181,11 +193,11 @@ namespace AGS_TranslationEditor.Classes {
                 if (rowCount == 0) {
                     message = "There are no rows in the document.";
                 }
-                MessageBox.Show("Please, select a row between 1 and " + rowCount, "Row out of range");
+                MessageBox.Show(message, "Row out of range");
             }
         }
 
-        private void SelectRow(DataGridViewRow row) {
+        public void SelectRow(DataGridViewRow row) {
             translationGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             //Clear all previous selections
@@ -196,17 +208,6 @@ namespace AGS_TranslationEditor.Classes {
             row.Selected = true;
 
             Search.CurrentRow = row.Index;
-        }
-
-        public int CountUntranslated() {
-            int untranslatedCount = 0;
-            foreach (DataGridViewRow row in translationGrid.Rows) {
-                String value = row.Cells[1].Value.ToString();
-
-                if (value.Trim().Equals(""))
-                    untranslatedCount++;
-            }
-            return untranslatedCount;
         }
 
     }

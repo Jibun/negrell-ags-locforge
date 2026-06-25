@@ -7,8 +7,8 @@
     <ProjectGuid>{EBC6A90A-54C7-4468-A612-44AA2FC791FA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGS_TranslationEditor</RootNamespace>
-    <AssemblyName>AGS_TranslationEditor</AssemblyName>
+    <RootNamespace>NegrellAGSLocForge</RootNamespace>
+    <AssemblyName>NegrellAGSLocForge</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\editor.ico</ApplicationIcon>
+    <ApplicationIcon>NegrellAGSLocForge-16x16.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -76,12 +76,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\AgsTranslation.cs" />
+    <Compile Include="Classes\Data\TRS\TrsReaderWriter.cs" />
     <Compile Include="Classes\AudioManager.cs" />
+    <Compile Include="Classes\Data\TRS\TrsFile.cs" />
+    <Compile Include="Classes\GameInfo.cs" />
+    <Compile Include="Classes\Data\TRA\TraConstants.cs" />
+    <Compile Include="Classes\Data\TRA\TraFile.cs" />
+    <Compile Include="Classes\Services\ExportManager.cs" />
+    <Compile Include="Classes\Services\SaveManager.cs" />
+    <Compile Include="Classes\TranslationDocument.cs" />
+    <Compile Include="Classes\TranslationEntry.cs" />
     <Compile Include="Classes\SearchOptions.cs" />
+    <Compile Include="Classes\TranslationGridRenderer.cs" />
     <Compile Include="Classes\TranslationGridUtils.cs" />
+    <Compile Include="Classes\Data\TRA\TraOptions.cs" />
+    <Compile Include="Classes\Data\TRA\TraReader.cs" />
+    <Compile Include="Classes\Data\TRA\TraWriter.cs" />
+    <Compile Include="Classes\Utils\EncodingData.cs" />
     <Compile Include="Classes\Utils\GameVersion.cs" />
     <Compile Include="Classes\Utils\StringUtils.cs" />
+    <Compile Include="Forms\DecryptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DecryptForm.Designer.cs">
+      <DependentUpon>DecryptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EncodingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EncodingDialog.Designer.cs">
+      <DependentUpon>EncodingDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,9 +139,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YandexTranslationApi.cs" />
-    <EmbeddedResource Include="MainForm.de.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DecryptForm.resx">
+      <DependentUpon>DecryptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EncodingDialog.resx">
+      <DependentUpon>EncodingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -130,9 +157,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StatsForm.de.resx">
-      <DependentUpon>StatsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StatsForm.resx">
       <DependentUpon>StatsForm.cs</DependentUpon>
@@ -235,7 +259,9 @@
   <ItemGroup>
     <None Include="Resources\editor.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="NegrellAGSLocForge-16x16.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

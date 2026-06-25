@@ -1,56 +1,115 @@
-# AGS Translation Editor #
-This project is a continuation —or a variation, if you will— of the BitBucket version of [AGS_TranslationEditor](https://bitbucket.org/Taktloss/ags_translationeditor/src/master/) by [Taktloss](https://github.com/Taktloss).  
-I just recently realized that a more recent [version](https://github.com/Taktloss/AGS_TranslationEditor) has always been available on GitHub. At this point, the differences have grown too large to create a proper fork and merge them.  
-Keep in mind that while this version fixes some issues and introduces new features, it also lacks some of the more recent ones found in the original version.
+# Negrell AGS LocForge
 
-### What can you do with AGS Translation Editor ? ###
-* You can open and see TRS and TRA files in a comprehensible way.
-* You can edit translations in a simple way and save them back as TRS files.
-* You can convert TRS files into TRA to be read in-game.
-* You can see statistics of your translation progress. 
+Negrell AGS LocForge is an extensively modified continuation of the original AGS Translation Editor, providing improved compatibility, bug fixes, and additional features for working with Adventure Game Studio translation files.
 
-### Pending Features ###
-* Create new TRS file.
-* Allow wrap arond search.
+## Acknowledgements
 
-### Known Issues ###
+This project is based on the AGS Translation Editor created by Bernd Keilmann (Taktloss).
 
-### Changelog ###
-#### 2.1.2 ####
-* Fixed stream position reset when skipping invalid GameInfo matches.
-* Corrected game data version detection and dependent parsing.
-* Added warning for unsupported newer game data versions.
+Development started from the Bitbucket version of the original project:
 
-#### 2.1.1 ####
-* Fixed TRA creation and Game Information retrieval for old ASG version games (messed up in last update).
-* Added AGS as a supported file format for Game Information retrieval and TRA creation.
+https://bitbucket.org/Taktloss/ags_translationeditor/
 
-#### 2.1.0 ####
-* Added support for newer AGS games.
+Since then, the codebase has diverged significantly due to extensive refactoring, bug fixes, and new features. As a result, this project is no longer maintained as a direct fork of the original repository.
 
-#### 2.0.0 ####
-* Names of some forms, methods, variables, etc. changed.
-* Some components moved to folders 'Forms' and 'Classes'.
-* Fixed TRA reading and writing methods. Special characters are now correctly loaded, displayed and saved. Some other minor fixes.
-* Fixed save option behaviour that automatically overrode TRA files with TRS content, making them unusable.
-* New 'go to line' and 'search text' options added.
+A later version of the original project is also available on GitHub:
 
-## AGS Files Related ##
+https://github.com/Taktloss/AGS_TranslationEditor
 
-### Where do I get the script of a game ? ###
-* Unfortunately, this version does not provide that feature. However, you can either manually search for "__NEWSCRIPTSTART_" in the game executable and copy & paste the script into a new file, or use the script available in the [original version](https://github.com/Taktloss/AGS_TranslationEditor).
+Original work:  
+Copyright © 2015 Bernd Keilmann
 
-### TRS file format ###
-A TRS file should look like this example
+Modifications and new code:  
+Copyright © 2022–2026 Ivan L. Negrell
+
+## Features
+
+- Open and inspect AGS `.TRS` and `.TRA` files in a user-friendly way.
+- Edit translations and save them back as `.TRS` files.
+- Convert `.TRS` files into `.TRA` files ready to be used in-game.
+- View translation progress statistics.
+- Read and decode encrypted text strings stored in `.TRA` files.
+- Support multiple text encodings when reading and writing translation files.
+- Automatically detect the encoding stored in supported `.TRA` files.
+- Manually select the encoding to be used when automatic detection is unavailable.
+
+## Pending Features
+
+- Add wrap-around search support.
+
+## Known Issues
+
+_None currently known._
+
+## Changelog
+
+### 3.0.0
+
+- Renamed the application and updated project branding.
+- Added a new application icon.
+- Performed a major codebase refactor:
+  - reorganized the source tree and folder structure;
+  - moved code to more appropriate files;
+  - renamed classes, methods, variables and members;
+  - standardized naming conventions to PascalCase;
+  - improved overall code quality and maintainability.
+- Redesigned the internal representation of TRS data.
+- Reworked the internal representation and parsing of TRA files, improving accuracy and adding support for newer AGS features.
+- Implemented a new encoding/decoding system for TRA, TRS and the application itself.
+- Added automatic encoding detection for supported TRA files.
+- Added user-selectable encoding support.
+- Added TRA string decryption functionality, allowing retrieval of both decoded bytes and plain text.
+- Updated licensing information throughout the project.
+- Corrected and synchronized the LICENSE file.
+- Updated and expanded the project documentation.
+
+### 2.1.2
+
+- Fixed stream position reset when skipping invalid GameInfo matches.
+- Corrected game data version detection and dependent parsing.
+- Added warning for unsupported newer game data versions.
+
+### 2.1.1
+
+- Fixed TRA creation and Game Information retrieval for old AGS version games (broken in the previous update).
+- Added AGS executable files as a supported format for Game Information retrieval and TRA creation.
+
+### 2.1.0
+
+- Added support for newer AGS games.
+
+### 2.0.0
+
+- Renamed several forms, methods and variables.
+- Reorganized part of the codebase into dedicated folders.
+- Fixed TRA reading and writing methods. Special characters are correctly loaded, displayed and saved.
+- Fixed save behaviour that previously overwrote TRA files with TRS content, making them unusable.
+- Added "Go to line" and "Search text" features.
+
+## AGS Files
+
+### TRS File Format
+
+A `.TRS` file should look like this example:
 
 ```
-#!python
+// TRS file format
+// Each entry consists of TWO consecutive lines:
+//   1. Original text
+//   2. Translation text
+// Lines starting with // are comments and ignored by the parser
+// Encoding declaration (optional, must appear before entries):
+//#Encoding=EncodingName
+//
+//#Encoding=UTF-8
+// Entry 1
+Original Text1
 
-&1 Original Text1
-
-&2 Original Text2
-&2 Test translation
-&3 Original Text3
-
+// Entry 2
+Original Text2
+Test translation
+// Entry 3
+Original Text3
+Translated Text3
 
 ```

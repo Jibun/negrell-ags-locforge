@@ -117,26 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblTranslated.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lblTranslated.Text" xml:space="preserve">
-    <value>Übersetzt</value>
-  </data>
-  <data name="lblNotTranslated.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="lblNotTranslated.Text" xml:space="preserve">
-    <value>Nicht übersetzt</value>
-  </data>
-  <data name="lblCountEntries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lblCountEntries.Text" xml:space="preserve">
-    <value>Einträge</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Statistik</value>
-  </data>
 </root>

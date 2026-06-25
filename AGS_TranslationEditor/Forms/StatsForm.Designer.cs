@@ -1,4 +1,4 @@
-﻿namespace AGS_TranslationEditor
+﻿namespace NegrellAGSLocForge.Forms
 {
     partial class StatsForm
     {
@@ -29,54 +29,54 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatsForm));
-            this.lblTranslated = new System.Windows.Forms.Label();
-            this.lblNotTranslated = new System.Windows.Forms.Label();
-            this.lblCountEntries = new System.Windows.Forms.Label();
-            this.lblTranslatedCount = new System.Windows.Forms.Label();
-            this.lblNotTranslatedCount = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.TranslatedLabel = new System.Windows.Forms.Label();
+            this.NotTranslatedLabel = new System.Windows.Forms.Label();
+            this.CountEntriesLabel = new System.Windows.Forms.Label();
+            this.TranslatedCountLabel = new System.Windows.Forms.Label();
+            this.NotTranslatedCountLabel = new System.Windows.Forms.Label();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
-            // lblTranslated
+            // TranslatedLabel
             // 
-            resources.ApplyResources(this.lblTranslated, "lblTranslated");
-            this.lblTranslated.Name = "lblTranslated";
+            resources.ApplyResources(this.TranslatedLabel, "TranslatedLabel");
+            this.TranslatedLabel.Name = "TranslatedLabel";
             // 
-            // lblNotTranslated
+            // NotTranslatedLabel
             // 
-            resources.ApplyResources(this.lblNotTranslated, "lblNotTranslated");
-            this.lblNotTranslated.Name = "lblNotTranslated";
+            resources.ApplyResources(this.NotTranslatedLabel, "NotTranslatedLabel");
+            this.NotTranslatedLabel.Name = "NotTranslatedLabel";
             // 
-            // lblCountEntries
+            // CountEntriesLabel
             // 
-            resources.ApplyResources(this.lblCountEntries, "lblCountEntries");
-            this.lblCountEntries.Name = "lblCountEntries";
+            resources.ApplyResources(this.CountEntriesLabel, "CountEntriesLabel");
+            this.CountEntriesLabel.Name = "CountEntriesLabel";
             // 
-            // lblTranslatedCount
+            // TranslatedCountLabel
             // 
-            resources.ApplyResources(this.lblTranslatedCount, "lblTranslatedCount");
-            this.lblTranslatedCount.Name = "lblTranslatedCount";
+            resources.ApplyResources(this.TranslatedCountLabel, "TranslatedCountLabel");
+            this.TranslatedCountLabel.Name = "TranslatedCountLabel";
             // 
-            // lblNotTranslatedCount
+            // NotTranslatedCountLabel
             // 
-            resources.ApplyResources(this.lblNotTranslatedCount, "lblNotTranslatedCount");
-            this.lblNotTranslatedCount.Name = "lblNotTranslatedCount";
+            resources.ApplyResources(this.NotTranslatedCountLabel, "NotTranslatedCountLabel");
+            this.NotTranslatedCountLabel.Name = "NotTranslatedCountLabel";
             // 
-            // progressBar1
+            // ProgressBar
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
+            resources.ApplyResources(this.ProgressBar, "ProgressBar");
+            this.ProgressBar.Name = "ProgressBar";
             // 
             // StatsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.lblNotTranslatedCount);
-            this.Controls.Add(this.lblTranslatedCount);
-            this.Controls.Add(this.lblCountEntries);
-            this.Controls.Add(this.lblNotTranslated);
-            this.Controls.Add(this.lblTranslated);
+            this.Controls.Add(this.ProgressBar);
+            this.Controls.Add(this.NotTranslatedCountLabel);
+            this.Controls.Add(this.TranslatedCountLabel);
+            this.Controls.Add(this.CountEntriesLabel);
+            this.Controls.Add(this.NotTranslatedLabel);
+            this.Controls.Add(this.TranslatedLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -90,11 +90,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblTranslated;
-        private System.Windows.Forms.Label lblNotTranslated;
-        private System.Windows.Forms.Label lblCountEntries;
-        private System.Windows.Forms.Label lblTranslatedCount;
-        private System.Windows.Forms.Label lblNotTranslatedCount;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label TranslatedLabel;
+        private System.Windows.Forms.Label NotTranslatedLabel;
+        private System.Windows.Forms.Label CountEntriesLabel;
+        private System.Windows.Forms.Label TranslatedCountLabel;
+        private System.Windows.Forms.Label NotTranslatedCountLabel;
+        private System.Windows.Forms.ProgressBar ProgressBar;
     }
 }

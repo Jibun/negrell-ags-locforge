@@ -1,31 +1,34 @@
-﻿using AGS_TranslationEditor.Classes;
-using Microsoft.VisualBasic.Devices;
+﻿/* 
+   Copyright 2022-2026 Ivan L. Negrell
+
+   This file is part of AGS Localization Studio.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   See the LICENSE.md file for details.
+*/
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AGS_TranslationEditor.forms {
+namespace NegrellAGSLocForge.Forms {
     public partial class SearchTextForm : Form {
 
         public SearchTextForm() {
             InitializeComponent();
         }
 
-        private void startSearch(bool forward) {
+        private void StartSearch(bool forward) {
             MainForm parent = (MainForm)this.Owner;
 
             SearchOptions options = new SearchOptions();
-            options.CaseSensitive = caseSensitiveCheck.Checked;
+            options.CaseSensitive = CaseSensitiveCheckBox.Checked;
             options.Forward = forward;
-            options.WrapAround = wrapAroundCheck.Checked;
+            options.WrapAround = WrapAroundCheckBox.Checked;
 
-            String text = txtBoxSearchText.Text;
+            String text = SearchTextTextBox.Text;
             if (!String.IsNullOrWhiteSpace(text.Trim())) {
                 if (parent.translationGridUtils.Search.IsEnabled() && !parent.translationGridUtils.Search.SearchedText.Equals(text)) {
                     parent.translationGridUtils.Search.ResetPosition();
@@ -37,13 +40,13 @@ namespace AGS_TranslationEditor.forms {
             }
         }
 
-        private void btnSearchNext_Click(object sender, EventArgs e) {
-            startSearch(true);
+        private void SearchNextButton_Click(object sender, EventArgs e) {
+            StartSearch(true);
             
         }
 
-        private void btnSearchPreview_Click(object sender, EventArgs e) {
-            startSearch(false);
+        private void SearchPreviewButton_Click(object sender, EventArgs e) {
+            StartSearch(false);
         }
 
         private void SearchTextForm_FormClosed(object sender, FormClosedEventArgs e) {
