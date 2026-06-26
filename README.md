@@ -30,7 +30,7 @@ Copyright © 2022–2026 Ivan L. Negrell
 - View translation progress statistics.
 - Read and decode encrypted text strings stored in `.TRA` files.
 - Support multiple text encodings when reading and writing translation files.
-- Automatically detect the encoding stored in supported `.TRA` files.
+- Automatically detect the encoding stored in `.TRA` files when available.
 - Manually select the encoding to be used when automatic detection is unavailable.
 
 ## Pending Features
@@ -56,8 +56,9 @@ _None currently known._
 - Redesigned the internal representation of TRS data.
 - Reworked the internal representation and parsing of TRA files, improving accuracy and adding support for newer AGS features.
 - Implemented a new encoding/decoding system for TRA, TRS and the application itself.
-- Added automatic encoding detection for supported TRA files.
-- Added user-selectable encoding support.
+  - added automatic encoding detection for TRA files when available.
+  - added user-selectable encoding support.
+  - added encoding to TRS files when saved.
 - Added TRA string decryption functionality, allowing retrieval of both decoded bytes and plain text.
 - Updated licensing information throughout the project.
 - Corrected and synchronized the LICENSE file.
